@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import assets from '../assets/Data'
+import ThemeToggle from './ThemeToggle'
 
 const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
   return (
     <div className='flex justify-between items-center px-4 sm:px-12 lg:px-24
     xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50
@@ -13,6 +15,7 @@ const Navbar = ({ theme, setTheme }) => {
         className='w-32 sm:w-40'
         alt="logo"
       />
+
       <div className={`text-gray-700 dark:text-white sm:text-sm
       ${sidebarOpen ? 'max-sm:w-60 max-sm:pl-10' : 'max-sm:w-0 max-sm:overflow-hidden'}
       max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen 
@@ -25,18 +28,32 @@ const Navbar = ({ theme, setTheme }) => {
           alt='close'
           onClick={() => setSidebarOpen(false)}
         />
+
         <a href='#'>Home</a>
         <a href='#services'>Services</a>
         <a href='#our-work'>Our Work</a>
         <a href='#contact-us'>Contact-Us</a>
       </div>
-      <div>
-        <a href='#contact-us' className='text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-b-full
-        cursor-pointer hover:scale-105 transition-all rounded-full'>
+
+      <div className='flex items-center gap-2 sm:gap-4'>
+        <ThemeToggle theme={theme} setTheme={setTheme} />
+
+        <img
+          src={theme === 'dark' ? assets.menu_icon_dark : assets.menu_icon}
+          alt=''
+          onClick={() => setSidebarOpen(true)}
+          className='w-8 sm:hidden'
+        />
+
+        <a
+          href='#contact-us'
+          className='text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 cursor-pointer hover:scale-105 transition-all rounded-full'
+        >
           Connect
           <img src={assets.arrow_icon} width={14} alt="arrow" />
         </a>
       </div>
+
     </div>
   )
 }
