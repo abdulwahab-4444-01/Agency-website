@@ -1,13 +1,13 @@
-import Navbar from "./component/Navbar";
-import Hero from "./component/Hero";
-import Trusted from "./component/Trusted";
-import Help from "./component/Services";
-import Ourwork from "./component/Ourwork";
-import Teams from "./component/Teams";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Trusted from "./components/Trusted";
+import Help from "./components/Services";
+import Ourwork from "./components/Ourwork";
+import Teams from "./components/Teams";
 import { useState, useEffect } from "react";
-import Contactus from "./component/Contactus";
+import Contactus from "./components/Contactus";
 import { Toaster } from "react-hot-toast";
-import Footer from "./component/Footer";
+import Footer from "./components/Footer";
 function App() {
   const [theme, setTheme] = useState(
     () => localStorage.getItem('theme') || 'light'

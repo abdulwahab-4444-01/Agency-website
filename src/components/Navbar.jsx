@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import assets from '../assets/Data'
 import ThemeToggle from './ThemeToggle'
+import { Button } from './ui/button'
 
 const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -45,13 +46,17 @@ const Navbar = ({ theme, setTheme }) => {
           className='w-8 sm:hidden'
         />
 
-        <a
+        {/* <a
           href='#contact-us'
           className='text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 cursor-pointer hover:scale-105 transition-all rounded-full'
         >
           Connect
           <img src={assets.arrow_icon} width={14} alt="arrow" />
-        </a>
+        </a> */}
+        <Button variant='default' size='sm' className='max-sm:hidden rounded-full text-white'>
+          Connect
+          <img src={assets.arrow_icon} width={14} alt="arrow" />
+        </Button>
       </div>
 
     </div>
